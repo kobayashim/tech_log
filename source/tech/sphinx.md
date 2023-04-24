@@ -48,7 +48,7 @@ Github Pages での公開を前提としているため、管理するリポジ�
 ```
 
 を実施し、プロジェクトを初期化する。  
-途中の選択肢は以下の選択する。
+途中の選択肢は以下を選択する。
 
 ```
 Separate source and build directories (y/n) [n]: y
@@ -110,7 +110,7 @@ ReSTだけではなく、Markdownでも記述可能とする。
 
 ### Github Pages対応
 
-Github Pagesに対応するため、HTMLの出力先を ./build/html から ./docs に変更し、CSS等のファイルのdocs以下のフォルダに配置するように設定の変更を実施する。
+Github Pagesに対応するため、HTMLの出力先を ./build/html から ./docs に変更し、CSS等のファイルをdocs以下フォルダ以下に配置するように設定変更する。
 
 #### copy.pyの書き換え
 
