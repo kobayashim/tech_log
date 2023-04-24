@@ -1,0 +1,20 @@
+====================================
+Welcome to tech_log's documentation!
+====================================
+
+
+.. toctree::
+   :maxdepth: 3
+   :caption: AWS関連:
+
+
+====================================
+Welcome to tech_log's documentation!
+====================================
+
+.. toctree::
+   :maxdepth: 3
+   :caption: その他技術関連:
+
+   /tech/sphinx/install
+

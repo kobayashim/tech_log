@@ -25,12 +25,17 @@ if errorlevel 9009 (
 
 if "%1" == "" goto help
 if "%1" == "html" goto html
+if "%1" == "live" goto live
 
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
 goto end
 
 :html
 %SPHINXBUILD% -b html %SOURCEDIR% "docs" %SPHINXOPTS% %O%
+goto end
+
+:live
+sphinx-autobuild source docs
 goto end
 
 :help

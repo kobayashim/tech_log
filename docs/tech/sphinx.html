@@ -1,0 +1,396 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="jp">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Sphinx &#8212; tech_log 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="塾活動(FY2023前期)" href="../activities/fy2023early.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../activities/fy2023early.html" title="塾活動(FY2023前期)"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">tech_log 0.0.1 documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Sphinx</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="sphinx">
+<h1>Sphinx<a class="headerlink" href="#sphinx" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>前提<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p>ここでは Windows 上での使用を前提としている。macOS や Linux の場合は適宜読み替えを実施すること。<br />
+また作成した文章は Github Pages での公開を前提としている。</p>
+</section>
+<section id="id2">
+<h2>Sphinxの導入<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<section id="python3">
+<h3>Python3のインストール<a class="headerlink" href="#python3" title="Permalink to this heading">¶</a></h3>
+<p>Python3 が導入済みであることを前提としている。<br />
+導入済みかはターミナルから</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># pythonのバージョン確認</span>
+<span class="p">&gt;</span> <span class="n">python</span> <span class="n">-V</span>
+</pre></div>
+</div>
+<p>を実施し、3系のバージョン番号が返ってくればインストール済みとなる。</p>
+<p>未インストールの場合は <a class="reference external" href="https://www.python.org/downloads/">公式サイト</a> からインストーラーを取得し、実行する。<br />
+複数プロジェクト等により複数のバージョンが混在する場合は <a class="reference external" href="https://python-beginner.blog/multiversion/">こちらのサイト</a> を参照して切り替える。</p>
+</section>
+<section id="id3">
+<h3>プロジェクトフォルダに移動<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<p>Github Pages での公開を前提としているため、管理するリポジトリからあらかじめcloneをしておく。<br />
+以下の手順ではcloneしたローカルリポジトリ直下をカレントディレクトリとする。</p>
+</section>
+<section id="id4">
+<h3>Sphinxのインストール<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># Sphinxのインストール</span>
+<span class="p">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3>クイックスタート<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># クイックスタートの実施</span>
+<span class="p">&gt;</span> <span class="n">sphinx-quickstart</span>
+</pre></div>
+</div>
+<p>を実施し、プロジェクトを初期化する。<br />
+途中の選択肢は以下の選択する。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Separate</span> <span class="n">source</span> <span class="ow">and</span> <span class="n">build</span> <span class="n">directories</span> <span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="p">[</span><span class="n">n</span><span class="p">]:</span> <span class="n">y</span>
+<span class="n">Project</span> <span class="n">name</span><span class="p">:</span> <span class="n">プロジェクトの名称</span>
+<span class="n">Author</span> <span class="n">name</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="n">作者名</span>
+<span class="n">Project</span> <span class="n">release</span> <span class="p">[]:</span> <span class="mf">0.0.1</span> <span class="p">(</span><span class="n">任意でよい</span><span class="p">)</span>
+<span class="n">Project</span> <span class="n">language</span> <span class="p">[</span><span class="n">en</span><span class="p">]:</span> <span class="n">jp</span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h3>テーマの変更<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<p>ここではデフォルトのテーマから「Cloud」テーマに変更する手順を記す。<br />
+テーマは個人の好みであるため、変更しなくてもよいし別のテーマとしてもよい。</p>
+<section id="id7">
+<h4>テーマのインストール<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># テーマのインストール</span>
+<span class="p">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">cloud-sptheme</span>
+</pre></div>
+</div>
+</section>
+<section id="copy-py">
+<h4>copy.pyの書き換え<a class="headerlink" href="#copy-py" title="Permalink to this heading">¶</a></h4>
+<p>./souce/copy.py を以下の様に書き換える</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gd">- html_theme = &#39;alabaster&#39;</span>
+<span class="gi">+ html_theme = &#39;cloud&#39; </span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="markdown">
+<h3>Markdownの有効化<a class="headerlink" href="#markdown" title="Permalink to this heading">¶</a></h3>
+<p>ReSTだけではなく、Markdownでも記述可能とする。</p>
+<section id="id8">
+<h4>プラグインインストール<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># プラグインのインストール</span>
+<span class="p">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">myst_parser</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h4>copy.pyの書き換え<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h4>
+<p>./souce/copy.py を以下の様に書き換える</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gd">- extensions = []</span>
+<span class="gi">+ extensions = [&#39;myst_parser&#39;]</span>
+<span class="gi">+</span>
+<span class="gi">+ source_suffix = {</span>
+<span class="gi">+     &#39;.rst&#39;: &#39;restructuredtext&#39;,</span>
+<span class="gi">+     &#39;.md&#39;: &#39;markdown&#39;,</span>
+<span class="gi">+ }</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="github-pages">
+<h3>Github Pages対応<a class="headerlink" href="#github-pages" title="Permalink to this heading">¶</a></h3>
+<p>Github Pagesに対応するため、HTMLの出力先を ./build/html から ./docs に変更し、CSS等のファイルのdocs以下のフォルダに配置するように設定の変更を実施する。</p>
+<section id="id10">
+<h4>copy.pyの書き換え<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h4>
+<p>./souce/copy.py を以下の様に書き換える</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gd">- extensions = [&#39;myst_parser&#39;]</span>
+<span class="gi">+ extensions = [&#39;myst_parser&#39;, &#39;sphinx.ext.githubpages&#39;]</span>
+</pre></div>
+</div>
+</section>
+<section id="make-bat">
+<h4>make.batの書き換え<a class="headerlink" href="#make-bat" title="Permalink to this heading">¶</a></h4>
+<p>./make.bat を以下の様に書き換える</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span> if &quot;%1&quot; == &quot;&quot; goto help
+<span class="gi">+ if &quot;%1&quot; == &quot;html&quot; goto html</span>
+
+<span class="w"> </span> %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+<span class="w"> </span> goto end
+
+<span class="gi">+ :html</span>
+<span class="gi">+ %SPHINXBUILD% -b html %SOURCEDIR% &quot;docs&quot; %SPHINXOPTS% %O%</span>
+<span class="gi">+ goto end</span>
+<span class="gi">+</span>
+<span class="w"> </span> :help
+<span class="w"> </span> %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+</pre></div>
+</div>
+<p>macOSやLinuxの場合は ./Makefile に同様の処理を加える。</p>
+</section>
+<section id="github">
+<h4>Githubの設定変更<a class="headerlink" href="#github" title="Permalink to this heading">¶</a></h4>
+<p>Githubのプロジェクトページに行き、「Setting」-&gt;「Pages」と遷移し、<br />
+Source を「Deploy from a branch」に、<br />
+Branch を「main」「docs」にそれぞれ変更する。</p>
+<p><img alt="Githubの設定変更" src="../_images/github_pages.png" /></p>
+</section>
+</section>
+<section id="id11">
+<h3>自動ビルド対応<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h3>
+<p>手動でのビルドだけではなく、自動でのビルドにも対応可能とする。</p>
+<section id="id12">
+<h4>プラグインインストール<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># プラグインのインストール</span>
+<span class="p">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx-autobuild</span>
+</pre></div>
+</div>
+</section>
+<section id="id13">
+<h4>make.batの書き換え<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h4>
+<p>./make.bat を以下の様に書き換える</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span> if &quot;%1&quot; == &quot;&quot; goto help
+<span class="w"> </span> if &quot;%1&quot; == &quot;html&quot; goto html
+<span class="gi">+ if &quot;%1&quot; == &quot;live&quot; goto live</span>
+
+<span class="w"> </span> %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+<span class="w"> </span> goto end
+
+<span class="w"> </span> :html
+<span class="w"> </span> %SPHINXBUILD% -b html %SOURCEDIR% &quot;docs&quot; %SPHINXOPTS% %O%
+<span class="w"> </span> goto end
+
+<span class="gi">+ :live</span>
+<span class="gi">+ sphinx-autobuild source docs</span>
+<span class="gi">+ goto end</span>
+<span class="gi">+</span>
+<span class="w"> </span> :help
+<span class="w"> </span> %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+</pre></div>
+</div>
+<p>macOSやLinuxの場合は ./Makefile に同様の処理を加える。</p>
+</section>
+</section>
+</section>
+<section id="id14">
+<h2>ビルド<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h2>
+<p>ローカルリポジトリ直下で以下を実行する。</p>
+<section id="id15">
+<h3>手動ビルド<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># HTMLの生成</span>
+<span class="p">&gt;</span>  <span class="p">.\</span><span class="n">make</span><span class="p">.</span><span class="n">bat</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>./docs 以下にHTMLが生成される</p>
+</section>
+<section id="id16">
+<h3>自動ビルド<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># HTMLの生成</span>
+<span class="p">&gt;</span>  <span class="p">.\</span><span class="n">make</span><span class="p">.</span><span class="n">bat</span> <span class="n">live</span>
+</pre></div>
+</div>
+<p>./docs 以下にHTMLが生成され、かつ変更があるたびに自動的にビルドが実行される。<br />
+またデフォルト設定では</p>
+<p><a class="reference external" href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> にてビルドされたHTMLを参照することができる。</p>
+</section>
+</section>
+<section id="id17">
+<h2>参考<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://www.sphinx-doc.org/ja/master/index.html">Sphinx</a><br />
+<a class="reference external" href="https://qiita.com/kinpira/items/505bccacb2fba89c0ff0">sphinxでドキュメント作成からWeb公開までをやってみた</a><br />
+<a class="reference external" href="https://qiita.com/tutuz/items/88a32d94d700b33dc3ea">SphinxとGitHub Pagesで技術ノートを公開しよう！</a><br />
+<a class="reference external" href="https://qiita.com/mikanbako/items/28a3fc5d1da42939f941">sphinx-autobuildで再ビルド、ブラウザの再リロードの手間を省いてSphinx文書をサクサク作成</a></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Sphinx</a><ul>
+<li><a class="reference internal" href="#id1">前提</a></li>
+<li><a class="reference internal" href="#id2">Sphinxの導入</a><ul>
+<li><a class="reference internal" href="#python3">Python3のインストール</a></li>
+<li><a class="reference internal" href="#id3">プロジェクトフォルダに移動</a></li>
+<li><a class="reference internal" href="#id4">Sphinxのインストール</a></li>
+<li><a class="reference internal" href="#id5">クイックスタート</a></li>
+<li><a class="reference internal" href="#id6">テーマの変更</a><ul>
+<li><a class="reference internal" href="#id7">テーマのインストール</a></li>
+<li><a class="reference internal" href="#copy-py">copy.pyの書き換え</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#markdown">Markdownの有効化</a><ul>
+<li><a class="reference internal" href="#id8">プラグインインストール</a></li>
+<li><a class="reference internal" href="#id9">copy.pyの書き換え</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#github-pages">Github Pages対応</a><ul>
+<li><a class="reference internal" href="#id10">copy.pyの書き換え</a></li>
+<li><a class="reference internal" href="#make-bat">make.batの書き換え</a></li>
+<li><a class="reference internal" href="#github">Githubの設定変更</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id11">自動ビルド対応</a><ul>
+<li><a class="reference internal" href="#id12">プラグインインストール</a></li>
+<li><a class="reference internal" href="#id13">make.batの書き換え</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id14">ビルド</a><ul>
+<li><a class="reference internal" href="#id15">手動ビルド</a></li>
+<li><a class="reference internal" href="#id16">自動ビルド</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id17">参考</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="../activities/fy2023early.html"
+                          title="Previous page">&larr; 塾活動(FY2023前期)</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tech/sphinx.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../activities/fy2023early.html" title="塾活動(FY2023前期)"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">tech_log 0.0.1 documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Sphinx</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Mitsuru KOBAYASHI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.0.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

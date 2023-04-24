@@ -7,16 +7,18 @@ Welcome to tech_log's documentation!
 ====================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Sphinx関連:
-   :numbered:
+   :maxdepth: 3
+   :caption: 塾活動:
 
-   /sphinx/install
+   /activities/fy2023early
 
 
-Indices and tables
-==================
+.. toctree::
+   :maxdepth: 3
+   :caption: AWS関連:
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. toctree::
+   :maxdepth: 3
+   :caption: その他技術関連:
+
+   /tech/sphinx
