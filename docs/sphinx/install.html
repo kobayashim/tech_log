@@ -66,12 +66,12 @@
 <h1><span class="section-number">1. </span>Sphinxの導入方法<a class="headerlink" href="#sphinx" title="Permalink to this heading">¶</a></h1>
 <section id="id1">
 <h2><span class="section-number">1.1. </span>前提条件<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
-<p>ここではWindows上での使用を前提としている。<br />
-MacOSやLinuxの場合は適宜読み替えを実施すること。</p>
+<p>ここでは Windows 上での使用を前提としている。macOS や Linux の場合は適宜読み替えを実施すること。<br />
+また作成した文章は Github Pages での公開を前提としている。</p>
 </section>
-<section id="python">
-<h2><span class="section-number">1.2. </span>Pythonのインストール<a class="headerlink" href="#python" title="Permalink to this heading">¶</a></h2>
-<p>Pythonが導入済みの環境であることを前提としている。<br />
+<section id="python3">
+<h2><span class="section-number">1.2. </span>Python3のインストール<a class="headerlink" href="#python3" title="Permalink to this heading">¶</a></h2>
+<p>Python3 が導入済みであることを前提としている。<br />
 導入済みかはターミナルから</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
 
@@ -79,12 +79,17 @@ MacOSやLinuxの場合は適宜読み替えを実施すること。</p>
 <span class="p">&gt;</span> <span class="n">python</span> <span class="n">-V</span>
 </pre></div>
 </div>
-<p>を実施し、バージョン番号が返ってくればインストール済みとなる。</p>
+<p>を実施し、3系のバージョン番号が返ってくればインストール済みとなる。</p>
 <p>未インストールの場合は <a class="reference external" href="https://www.python.org/downloads/">公式サイト</a> からインストーラーを取得し、実行する。<br />
 複数プロジェクト等により複数のバージョンが混在する場合は <a class="reference external" href="https://python-beginner.blog/multiversion/">こちらのサイト</a> を参照して切り替える。</p>
 </section>
 <section id="id2">
-<h2><span class="section-number">1.3. </span>Sphinxのインストール<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">1.3. </span>プロジェクトフォルダに移動<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p>Github Pages での公開を前提としているため、管理するリポジトリからあらかじめcloneをしておく。<br />
+以下の手順ではcloneしたローカルリポジトリ直下をカレントディレクトリとする。</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">1.4. </span>Sphinxのインストール<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
 
 <span class="c"># Sphinxのインストール</span>
@@ -92,8 +97,8 @@ MacOSやLinuxの場合は適宜読み替えを実施すること。</p>
 </pre></div>
 </div>
 </section>
-<section id="id3">
-<h2><span class="section-number">1.4. </span>クイックスタート<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<section id="id4">
+<h2><span class="section-number">1.5. </span>クイックスタート<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
 
 <span class="c"># クイックスタートの実施</span>
@@ -103,19 +108,19 @@ MacOSやLinuxの場合は適宜読み替えを実施すること。</p>
 <p>を実施し、プロジェクトを初期化する。<br />
 途中の選択肢は以下の選択する。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Separate</span> <span class="n">source</span> <span class="ow">and</span> <span class="n">build</span> <span class="n">directories</span> <span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="p">[</span><span class="n">n</span><span class="p">]:</span> <span class="n">y</span>
-<span class="n">Project</span> <span class="n">name</span><span class="p">:</span> <span class="n">ドキュメント全体の名称</span>
+<span class="n">Project</span> <span class="n">name</span><span class="p">:</span> <span class="n">プロジェクトの名称</span>
 <span class="n">Author</span> <span class="n">name</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="n">作者名</span>
 <span class="n">Project</span> <span class="n">release</span> <span class="p">[]:</span> <span class="mf">0.0.1</span> <span class="p">(</span><span class="n">任意でよい</span><span class="p">)</span>
 <span class="n">Project</span> <span class="n">language</span> <span class="p">[</span><span class="n">en</span><span class="p">]:</span> <span class="n">jp</span>
 </pre></div>
 </div>
 </section>
-<section id="id4">
-<h2><span class="section-number">1.5. </span>テーマの変更<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<section id="id5">
+<h2><span class="section-number">1.6. </span>テーマの変更<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
 <p>ここではデフォルトのテーマから「Cloud」テーマに変更する手順を記す。<br />
 テーマは個人の好みであるため、変更しなくてもよいし別のテーマとしてもよい。</p>
-<section id="id5">
-<h3><span class="section-number">1.5.1. </span>テーマのインストール<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<section id="id6">
+<h3><span class="section-number">1.6.1. </span>テーマのインストール<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
 
 <span class="c"># テーマのインストール</span>
@@ -124,8 +129,8 @@ MacOSやLinuxの場合は適宜読み替えを実施すること。</p>
 </div>
 </section>
 <section id="copy-py">
-<h3><span class="section-number">1.5.2. </span>copy.pyの書き換え<a class="headerlink" href="#copy-py" title="Permalink to this heading">¶</a></h3>
-<p>copy.pyを以下の様に書き換える</p>
+<h3><span class="section-number">1.6.2. </span>copy.pyの書き換え<a class="headerlink" href="#copy-py" title="Permalink to this heading">¶</a></h3>
+<p>./souce/copy.py を以下の様に書き換える</p>
 <div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gd">- html_theme = &#39;alabaster&#39;</span>
 <span class="gi">+ html_theme = &#39;cloud&#39; </span>
 </pre></div>
@@ -133,22 +138,23 @@ MacOSやLinuxの場合は適宜読み替えを実施すること。</p>
 </section>
 </section>
 <section id="markdown">
-<h2><span class="section-number">1.6. </span>Markdownの有効化<a class="headerlink" href="#markdown" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">1.7. </span>Markdownの有効化<a class="headerlink" href="#markdown" title="Permalink to this heading">¶</a></h2>
 <p>ReSTだけではなく、Markdownでも記述可能とする。</p>
-<section id="id6">
-<h3><span class="section-number">1.6.1. </span>プラグインインストール<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<section id="id7">
+<h3><span class="section-number">1.7.1. </span>プラグインインストール<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
 
-<span class="c"># プラグインの導入</span>
+<span class="c"># プラグインのインストール</span>
 <span class="p">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">myst_parser</span>
 </pre></div>
 </div>
 </section>
-<section id="id7">
-<h3><span class="section-number">1.6.2. </span>copy.pyの書き換え<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
-<p>copy.pyを以下の様に書き換える</p>
+<section id="id8">
+<h3><span class="section-number">1.7.2. </span>copy.pyの書き換え<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
+<p>./souce/copy.py を以下の様に書き換える</p>
 <div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gd">- extensions = []</span>
 <span class="gi">+ extensions = [&#39;myst_parser&#39;]</span>
+<span class="gi">+</span>
 <span class="gi">+ source_suffix = {</span>
 <span class="gi">+     &#39;.rst&#39;: &#39;restructuredtext&#39;,</span>
 <span class="gi">+     &#39;.md&#39;: &#39;markdown&#39;,</span>
@@ -157,14 +163,58 @@ MacOSやLinuxの場合は適宜読み替えを実施すること。</p>
 </div>
 </section>
 </section>
-<section id="id8">
-<h2><span class="section-number">1.7. </span>ビルド<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h2>
+<section id="github-pages">
+<h2><span class="section-number">1.8. </span>Github Pages対応<a class="headerlink" href="#github-pages" title="Permalink to this heading">¶</a></h2>
+<p>Github Pagesに対応するため、HTMLの出力先を ./build/html から ./docs に変更し、CSS等のファイルのdocs以下のフォルダに配置するように設定の変更を実施する。</p>
+<section id="id9">
+<h3><span class="section-number">1.8.1. </span>copy.pyの書き換え<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
+<p>./souce/copy.py を以下の様に書き換える</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gd">- extensions = [&#39;myst_parser&#39;]</span>
+<span class="gi">+ extensions = [&#39;myst_parser&#39;, &#39;sphinx.ext.githubpages&#39;]</span>
+</pre></div>
+</div>
+</section>
+<section id="make-bat">
+<h3><span class="section-number">1.8.2. </span>make.batの書き換え<a class="headerlink" href="#make-bat" title="Permalink to this heading">¶</a></h3>
+<p>./make.bat を以下の様に書き換える</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span> if &quot;%1&quot; == &quot;&quot; goto help
+<span class="gi">+ if &quot;%1&quot; == &quot;html&quot; goto html</span>
+
+<span class="w"> </span> %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+<span class="w"> </span> goto end
+
+<span class="gi">+ :html</span>
+<span class="gi">+ %SPHINXBUILD% -b html %SOURCEDIR% &quot;docs&quot; %SPHINXOPTS% %O%</span>
+<span class="gi">+ goto end</span>
+<span class="gi">+</span>
+<span class="w"> </span> :help
+<span class="w"> </span> %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+</pre></div>
+</div>
+<p>macOSやLinuxの場合は ./Makefile に同様の処理を加える。</p>
+</section>
+<section id="github">
+<h3><span class="section-number">1.8.3. </span>Githubの設定変更<a class="headerlink" href="#github" title="Permalink to this heading">¶</a></h3>
+<p>Githubのプロジェクトページに行き、「Setting」-&gt;「Pages」と遷移し、<br />
+Source を「Deploy from a branch」に、<br />
+Branch を「main」「docs」にそれぞれ変更する。</p>
+<p><img alt="Githubの設定変更" src="../_images/github_pages.png" /></p>
+</section>
+</section>
+<section id="id10">
+<h2><span class="section-number">1.9. </span>ビルド<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
 
 <span class="c"># HTMLの生成</span>
 <span class="p">&gt;</span>  <span class="p">.\</span><span class="n">make</span><span class="p">.</span><span class="n">bat</span> <span class="n">html</span>
 </pre></div>
 </div>
+</section>
+<section id="id11">
+<h2><span class="section-number">1.10. </span>参考<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://www.sphinx-doc.org/ja/master/index.html">Sphinx</a><br />
+<a class="reference external" href="https://qiita.com/kinpira/items/505bccacb2fba89c0ff0">sphinxでドキュメント作成からWeb公開までをやってみた</a><br />
+<a class="reference external" href="https://qiita.com/tutuz/items/88a32d94d700b33dc3ea">SphinxとGitHub Pagesで技術ノートを公開しよう！</a></p>
 </section>
 </section>
 
@@ -179,20 +229,28 @@ MacOSやLinuxの場合は適宜読み替えを実施すること。</p>
     <ul>
 <li><a class="reference internal" href="#">1. Sphinxの導入方法</a><ul>
 <li><a class="reference internal" href="#id1">1.1. 前提条件</a></li>
-<li><a class="reference internal" href="#python">1.2. Pythonのインストール</a></li>
-<li><a class="reference internal" href="#id2">1.3. Sphinxのインストール</a></li>
-<li><a class="reference internal" href="#id3">1.4. クイックスタート</a></li>
-<li><a class="reference internal" href="#id4">1.5. テーマの変更</a><ul>
-<li><a class="reference internal" href="#id5">1.5.1. テーマのインストール</a></li>
-<li><a class="reference internal" href="#copy-py">1.5.2. copy.pyの書き換え</a></li>
+<li><a class="reference internal" href="#python3">1.2. Python3のインストール</a></li>
+<li><a class="reference internal" href="#id2">1.3. プロジェクトフォルダに移動</a></li>
+<li><a class="reference internal" href="#id3">1.4. Sphinxのインストール</a></li>
+<li><a class="reference internal" href="#id4">1.5. クイックスタート</a></li>
+<li><a class="reference internal" href="#id5">1.6. テーマの変更</a><ul>
+<li><a class="reference internal" href="#id6">1.6.1. テーマのインストール</a></li>
+<li><a class="reference internal" href="#copy-py">1.6.2. copy.pyの書き換え</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#markdown">1.6. Markdownの有効化</a><ul>
-<li><a class="reference internal" href="#id6">1.6.1. プラグインインストール</a></li>
-<li><a class="reference internal" href="#id7">1.6.2. copy.pyの書き換え</a></li>
+<li><a class="reference internal" href="#markdown">1.7. Markdownの有効化</a><ul>
+<li><a class="reference internal" href="#id7">1.7.1. プラグインインストール</a></li>
+<li><a class="reference internal" href="#id8">1.7.2. copy.pyの書き換え</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id8">1.7. ビルド</a></li>
+<li><a class="reference internal" href="#github-pages">1.8. Github Pages対応</a><ul>
+<li><a class="reference internal" href="#id9">1.8.1. copy.pyの書き換え</a></li>
+<li><a class="reference internal" href="#make-bat">1.8.2. make.batの書き換え</a></li>
+<li><a class="reference internal" href="#github">1.8.3. Githubの設定変更</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10">1.9. ビルド</a></li>
+<li><a class="reference internal" href="#id11">1.10. 参考</a></li>
 </ul>
 </li>
 </ul>
