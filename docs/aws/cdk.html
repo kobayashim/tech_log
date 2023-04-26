@@ -1,0 +1,286 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="jp">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>AWS CDK(Cloud Development Kit) &#8212; tech_log 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sphinx" href="../tech/sphinx.html" />
+    <link rel="prev" title="AWS CodeCatalyst" href="codecatalyst.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../tech/sphinx.html" title="Sphinx"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="codecatalyst.html" title="AWS CodeCatalyst"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">tech_log 0.0.1 documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">AWS CDK(Cloud Development Kit)</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="aws-cdk-cloud-development-kit">
+<h1>AWS CDK(Cloud Development Kit)<a class="headerlink" href="#aws-cdk-cloud-development-kit" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>前提条件<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p>以下の文章は特記事項がないかぎり、開発環境はWindows、ターミナルはPowerShell、使用言語はTypeScriptを前提としている。</p>
+</section>
+<section id="id2">
+<h2>概要<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p>TypeScriptやPython、JavaなどでAWSリソースを定義し、IaC(Infrastructure as Code)を実現する。<br />
+最終的にAWS CloudFormation を用いてデプロイされる。</p>
+</section>
+<section id="id3">
+<h2>必要条件<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<section id="node-js-v10-13-0">
+<h3>node.js v10.13.0以上<a class="headerlink" href="#node-js-v10-13-0" title="Permalink to this heading">¶</a></h3>
+<section id="id4">
+<h4>確認方法<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># [PowerShell on Windows]</span>
+
+<span class="c"># バージョンの確認</span>
+<span class="p">&gt;</span> <span class="n">node</span> <span class="n">-v</span>
+</pre></div>
+</div>
+<p>エラーが発生したり、バージョンが10.13.0未満の場合には以下の手順を参考にインストールを実行する。</p>
+</section>
+<section id="id5">
+<h4>インストール方法<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h4>
+<p>以下の方法ではnvmを使用し、複数のnode.jsバージョンを切り替えをすることが可能。</p>
+<section id="nvm-for-windows">
+<h5>NVM for Windows<a class="headerlink" href="#nvm-for-windows" title="Permalink to this heading">¶</a></h5>
+<p><a class="reference external" href="https://github.com/coreybutler/nvm-windows/releases">配布サイト</a> から最新版のインストーラーをダウンロードし、実行する。<br />
+インストール後は、Windowsを再起動する。</p>
+</section>
+<section id="node-js">
+<h5>node.js<a class="headerlink" href="#node-js" title="Permalink to this heading">¶</a></h5>
+<p>PowerShellは___管理者権限___で実行すること。（右クリックのメニューから「管理者として実行」）。</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># 最新LTS版をインストール</span>
+<span class="p">&gt;</span> <span class="n">nvm</span> <span class="n">install</span> <span class="n">lts</span>
+
+<span class="c"># インストール済みのバージョンを確認(現在の使用バージョンには * が表示される)</span>
+<span class="p">&gt;</span> <span class="n">nvm</span> <span class="n">list</span>
+
+<span class="c"># 使用するバージョンの変更</span>
+<span class="p">&gt;</span> <span class="n">nvm</span> <span class="n">use</span> <span class="n">x</span><span class="p">.</span><span class="n">y</span><span class="p">.</span><span class="n">z</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="aws-cli">
+<h3>AWS CLI<a class="headerlink" href="#aws-cli" title="Permalink to this heading">¶</a></h3>
+<section id="id6">
+<h4>確認方法<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># [PowerShell on Windows]</span>
+
+<span class="c"># バージョンの確認</span>
+<span class="p">&gt;</span> <span class="n">aws</span> <span class="p">-</span><span class="n">-version</span>
+</pre></div>
+</div>
+<p>エラーが発生した場合には以下の手順を参考にインストールを実行する。</p>
+</section>
+<section id="id7">
+<h4>インストール方法<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h4>
+<p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html">配布サイト</a> から最新版のインストーラーをダウンロードし、実行する。</p>
+</section>
+</section>
+<section id="cdk">
+<h3>CDK<a class="headerlink" href="#cdk" title="Permalink to this heading">¶</a></h3>
+<section id="id8">
+<h4>確認方法<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># [PowerShell on Windows]</span>
+
+<span class="c"># バージョンの確認</span>
+<span class="p">&gt;</span> <span class="n">cdk</span> <span class="p">-</span><span class="n">-version</span>
+</pre></div>
+</div>
+<p>エラーが発生した場合には以下の手順を参考にインストールを実行する。</p>
+</section>
+<section id="id9">
+<h4>インストール方法<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># ツールキットのインストール</span>
+<span class="p">&gt;</span> <span class="n">npm</span> <span class="n">install</span> <span class="n">-g</span> <span class="n">aws-cdk</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id">
+<h3>アクセスキーID / シークレットアクセスキー<a class="headerlink" href="#id" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/powershell/latest/userguide/pstools-appendix-sign-up.html">公式ユーザーガイド</a> を参考に取得する。</p>
+</section>
+</section>
+<section id="id10">
+<h2>参考<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://cdkworkshop.com/ja/">AWS CDK Intro Workshop</a></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">AWS CDK(Cloud Development Kit)</a><ul>
+<li><a class="reference internal" href="#id1">前提条件</a></li>
+<li><a class="reference internal" href="#id2">概要</a></li>
+<li><a class="reference internal" href="#id3">必要条件</a><ul>
+<li><a class="reference internal" href="#node-js-v10-13-0">node.js v10.13.0以上</a><ul>
+<li><a class="reference internal" href="#id4">確認方法</a></li>
+<li><a class="reference internal" href="#id5">インストール方法</a><ul>
+<li><a class="reference internal" href="#nvm-for-windows">NVM for Windows</a></li>
+<li><a class="reference internal" href="#node-js">node.js</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#aws-cli">AWS CLI</a><ul>
+<li><a class="reference internal" href="#id6">確認方法</a></li>
+<li><a class="reference internal" href="#id7">インストール方法</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cdk">CDK</a><ul>
+<li><a class="reference internal" href="#id8">確認方法</a></li>
+<li><a class="reference internal" href="#id9">インストール方法</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id">アクセスキーID / シークレットアクセスキー</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10">参考</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="codecatalyst.html"
+                          title="Previous page">&larr; AWS CodeCatalyst</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="../tech/sphinx.html"
+                          title="Next page">&rarr; Sphinx</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/aws/cdk.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../tech/sphinx.html" title="Sphinx"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="codecatalyst.html" title="AWS CodeCatalyst"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">tech_log 0.0.1 documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">AWS CDK(Cloud Development Kit)</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Mitsuru KOBAYASHI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.0.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

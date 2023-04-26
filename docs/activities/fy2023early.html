@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>塾活動(FY2023前期) &#8212; tech_log 0.0.1 documentation</title>
+    <title>活動(FY2023前期) &#8212; tech_log 0.0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
@@ -35,8 +35,8 @@
 
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Welcome to tech_log&#39;s documentation!" href="../tech/index.html" />
-    <link rel="prev" title="Welcome to tech_log&#39;s documentation!" href="../index.html" /> 
+    <link rel="next" title="AWS CodeCatalyst" href="../aws/codecatalyst.html" />
+    <link rel="prev" title="チラシの裏" href="../index.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -48,14 +48,14 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../tech/index.html" title="Welcome to tech_log&#39;s documentation!"
+          <a href="../aws/codecatalyst.html" title="AWS CodeCatalyst"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="../index.html" title="Welcome to tech_log&#39;s documentation!"
+          <a href="../index.html" title="チラシの裏"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">tech_log 0.0.1 documentation</a> &#187;</li>
 
-        <li class="nav-item nav-item-this"><a href="">塾活動(FY2023前期)</a></li> 
+        <li class="nav-item nav-item-this"><a href="">活動(FY2023前期)</a></li> 
       </ul>
     </div>
     </div>
@@ -67,15 +67,103 @@
           <div class="body" role="main">
             
   <section id="fy2023">
-<h1>塾活動(FY2023前期)<a class="headerlink" href="#fy2023" title="Permalink to this heading">¶</a></h1>
+<h1>活動(FY2023前期)<a class="headerlink" href="#fy2023" title="Permalink to this heading">¶</a></h1>
 <section id="id1">
-<h2>テーマ<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
-</section>
+<h2>活動履歴<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <section id="id2">
-<h2>実行計画<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
-</section>
+<h3>2023.4.14 ～ 2023.4.27<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
 <section id="id3">
-<h2>活動履歴<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<h4>前回からの取り組み状況<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
+<section id="aws-summit-tokyo-2023">
+<h5>AWS Summit Tokyo 2023 参加<a class="headerlink" href="#aws-summit-tokyo-2023" title="Permalink to this heading">¶</a></h5>
+<section id="aws">
+<h6>(セッション) ハッピーな開発者になろう！ 安心して開発を行うための AWS サービス活用法<a class="headerlink" href="#aws" title="Permalink to this heading">¶</a></h6>
+<p>Amazon CodeCatalyst、AWS Cloud Development Kit、Amazon CodeWhispererの紹介。</p>
+<p>個人的には今やっている案件で開発環境の構築やテスト用環境の整備が今まさに面倒だなと思っているところなので、興味深かった。</p>
+<ul class="simple">
+<li><p>Amazon CodeCatalyst</p>
+<ul>
+<li><p>AWSに特化した統合開発環境 (Azure DevOpsのAWS版？)</p></li>
+<li><p>IDE(VSCodeなど)とブラウザが使えれば、端末は何を使ってもかまわない。</p>
+<ul>
+<li><p>ローカルに環境を整える必要はない。ローカル環境もAWS側にある。</p>
+<ul>
+<li><p>開発者の追加があって即対応できる。余計な手間がない。</p></li>
+<li><p>IDEの起動時間によって課金される。</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>CI/CD対応。 AWS Cloud Development Kitで環境構築も自動化。個人単位でのテスト環境や、検証環境の払い出しも可。</p></li>
+<li><p>基本的に無料の範囲でも大抵のことはできる。(展示員談) ホントか？</p></li>
+</ul>
+</li>
+<li><p>Amazon CodeWhisperer</p>
+<ul>
+<li><p>コメントから実コードを提案 (Github CopilotのAWS版？)</p>
+<ul>
+<li><p>コメントがある意味ソースコードになる。→ ChatGPTのようにコメント(プロンプト)の書き方が重要になる？</p>
+<ul>
+<li><p>コメントがカバーする範囲は狭いので、ChatGPTほど複雑にはならないのでは？(展示員談)</p></li>
+<li><p>コメントを書く技術が重要になってくる。</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>セキュリティスキャンはよさそう。 (ただし有料)</p></li>
+<li><p>リーガル的な問題は気になる。</p>
+<ul>
+<li><p>AWS側は「責任あるAI」といっていたが・・・。</p></li>
+<li><p>組織内に閉じて実施することは可能。(展示員談)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="dx-aws">
+<h6>(セッション) DX 加速に向けた AWS マネージド サービス活用による運用レス基盤構築への挑戦と社内システムとの共存<a class="headerlink" href="#dx-aws" title="Permalink to this heading">¶</a></h6>
+<p>AWS使うのはいいけど運用やりたくないよね。という開発部隊あるあるの話。</p>
+<ul class="simple">
+<li><p>短期開発とNo Operationを実現するため、サーバーレス・マネージドサービスを主体に考えた。</p></li>
+<li><p>オンラインはAPI Gateway + Lambda + DynamoDB で 200TPS 捌いている</p>
+<ul>
+<li><p>スケールはAPI GatewayとLambdaの数を増やして対応。DynamoDBはCUの上限に注意。</p></li>
+</ul>
+</li>
+<li><p>スクラムチームをどうスケールさせていったか</p>
+<ul>
+<li><p>システム開発部門がPOとなり、その責任を負う。</p>
+<ul>
+<li><p>PO不在のスクラム開発って多いよね・・・(ぼやき)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id4">
+<h6>(その他)<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h6>
+<p>単純な疑問だが、サービス名がAWS ＊＊＊ だったり、 Amazon ＊＊＊ だったりするが、使い分けの基準はなんだろう？<br />
+展示員に聞こうと思ったけど忘れた。</p>
+</section>
+</section>
+<section id="github-pagessphinx">
+<h5>Github PagesとSphinxの導入<a class="headerlink" href="#github-pagessphinx" title="Permalink to this heading">¶</a></h5>
+<p><a class="reference external" href="https://kobayashim.github.io/tech_log/tech/sphinx.html">Github Pages</a> で公開</p>
+<ul class="simple">
+<li><p>SphinxのWindows導入向け手順を記載</p></li>
+</ul>
+</section>
+<section id="amazon-codecatalyst">
+<h5>Amazon CodeCatalystの検証<a class="headerlink" href="#amazon-codecatalyst" title="Permalink to this heading">¶</a></h5>
+<p><a class="reference external" href="https://kobayashim.github.io/tech_log/aws/codecatalyst.html">Github Pages</a> で公開</p>
+<ul class="simple">
+<li><p>blueprint から API GW + Lambda + DynamoDB のREST環境を検証</p></li>
+</ul>
+</section>
+</section>
+</section>
 </section>
 </section>
 
@@ -88,10 +176,24 @@
         <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
     <h3><a href="../index.html">Page contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">塾活動(FY2023前期)</a><ul>
-<li><a class="reference internal" href="#id1">テーマ</a></li>
-<li><a class="reference internal" href="#id2">実行計画</a></li>
-<li><a class="reference internal" href="#id3">活動履歴</a></li>
+<li><a class="reference internal" href="#">活動(FY2023前期)</a><ul>
+<li><a class="reference internal" href="#id1">活動履歴</a><ul>
+<li><a class="reference internal" href="#id2">2023.4.14 ～ 2023.4.27</a><ul>
+<li><a class="reference internal" href="#id3">前回からの取り組み状況</a><ul>
+<li><a class="reference internal" href="#aws-summit-tokyo-2023">AWS Summit Tokyo 2023 参加</a><ul>
+<li><a class="reference internal" href="#aws">(セッション) ハッピーな開発者になろう！ 安心して開発を行うための AWS サービス活用法</a></li>
+<li><a class="reference internal" href="#dx-aws">(セッション) DX 加速に向けた AWS マネージド サービス活用による運用レス基盤構築への挑戦と社内システムとの共存</a></li>
+<li><a class="reference internal" href="#id4">(その他)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#github-pagessphinx">Github PagesとSphinxの導入</a></li>
+<li><a class="reference internal" href="#amazon-codecatalyst">Amazon CodeCatalystの検証</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -100,12 +202,12 @@
   <div class="sphinxprev">
     <h4>Previous page</h4>
     <p class="topless"><a href="../index.html"
-                          title="Previous page">&larr; Welcome to tech_log's documentation!</a></p>
+                          title="Previous page">&larr; チラシの裏</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="../tech/index.html"
-                          title="Next page">&rarr; Welcome to tech_log's documentation!</a></p>
+    <p class="topless"><a href="../aws/codecatalyst.html"
+                          title="Next page">&rarr; AWS CodeCatalyst</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -154,14 +256,14 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../tech/index.html" title="Welcome to tech_log&#39;s documentation!"
+          <a href="../aws/codecatalyst.html" title="AWS CodeCatalyst"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="../index.html" title="Welcome to tech_log&#39;s documentation!"
+          <a href="../index.html" title="チラシの裏"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">tech_log 0.0.1 documentation</a> &#187;</li>
 
-        <li class="nav-item nav-item-this"><a href="">塾活動(FY2023前期)</a></li> 
+        <li class="nav-item nav-item-this"><a href="">活動(FY2023前期)</a></li> 
       </ul>
     </div>
     </div>

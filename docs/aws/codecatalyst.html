@@ -1,0 +1,235 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="jp">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>AWS CodeCatalyst &#8212; tech_log 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sphinx" href="../tech/sphinx.html" />
+    <link rel="prev" title="塾活動(FY2023前期)" href="../activities/fy2023early.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../tech/sphinx.html" title="Sphinx"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../activities/fy2023early.html" title="塾活動(FY2023前期)"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">tech_log 0.0.1 documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">AWS CodeCatalyst</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="aws-codecatalyst">
+<h1>AWS CodeCatalyst<a class="headerlink" href="#aws-codecatalyst" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p>TBD</p>
+</section>
+<section id="id2">
+<h2>用語集<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p><em><strong>日本語は公式な訳ではないことに注意。</strong></em></p>
+<ul class="simple">
+<li><p>ビルダーID (AWS Builder ID)</p></li>
+</ul>
+<p>個人単位に払いだされるID。<br />
+組織と紐づかないため、組織間を横断して使用することが可能。</p>
+<ul class="simple">
+<li><p>スペース (space)</p></li>
+</ul>
+<p>組織単位で管理する作業スペース。<br />
+一意のAWSアカウントと紐づけられ、発生した料金はAWSアカウントに対してなされる。<br />
+AWSアカウント毎にフリープランのスペースを1つ、スタンダードプランのスペースを5つ作成することができる。<br />
+スペース下に複数のプロジェクトを作成することができる。</p>
+<ul class="simple">
+<li><p>プロジェクト (project)</p></li>
+</ul>
+<p>開発プロジェクト毎で管理する単位。<br />
+issueやリポジトリ、ワークフローなど必要な機能が含まれている。<br />
+プロジェクト下に複数のリポジトリ、ワークフローを作成することができる。</p>
+<ul class="simple">
+<li><p>フリープラン / スタンダードプラン (free tier / standard tier)</p></li>
+</ul>
+<p>フリープランは無料のプランで、使用したリソース量が月当たりの規定値を超えた場合はスタンダードプランにアップグレードにする必要がある。<br />
+スタンダードプランは有料のプランで、使用したリソース量が月当たりの規定値を超えた場合は追加リソース料金が発生する。<br />
+リソース量は人あたりとスペースあたりの2種類があり、スペースあたりの場合はスペース内のユーザー数に関わらず、すべてのユーザーで共有される。<br />
+なお、ここでいうプランはCodeCatalystに対してのものであり、デプロイしたリソースについては別途料金が発生する。</p>
+<ul class="simple">
+<li><p>コンピューティング時間 (compute minutes)</p></li>
+</ul>
+<p>ワークフローアクションが実行されてから、完了するまでの時間。ユーザーあたり。</p>
+<ul class="simple">
+<li><p>開発環境時間 (dev Environment hours)</p></li>
+</ul>
+<p>クラウドベースの開発環境にアクセスした時間。スペースあたり。</p>
+</section>
+<section id="id3">
+<h2>制約 (2023.4.25時点)<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<p>現時点ではオレゴンリージョンでしか使用はできない。<br />
+作成したアプリを別リージョンにデプロイすることは可能。</p>
+</section>
+<section id="id">
+<h2>ビルダーID の作成<a class="headerlink" href="#id" title="Permalink to this heading">¶</a></h2>
+<p>利用には ビルダーID が必要となる。所持していない場合は新規に作成する。</p>
+<p>IDに使用するメールアドレスを入力する。AWSでは個人のメールアドレスを推奨している。</p>
+<p><img alt="AWS Builder ID 作成 fig.1" src="../_images/builderid1.png" /></p>
+<p>ユーザー名を入力する。</p>
+<p><img alt="AWS Builder ID 作成 fig.2" src="../_images/builderid2.png" /></p>
+<p>入力したメールアドレスに確認コードが送信されるため、届いたコードを入力する。</p>
+<p><img alt="AWS Builder ID 作成 fig.3" src="../_images/builderid3.png" /></p>
+<p>パスワードを入力する。</p>
+<p><img alt="AWS Builder ID 作成 fig.4" src="../_images/builderid4.png" /></p>
+<p>正常に作成された場合、スペースの作成画面に遷移するため、引き続きスペースの作成を実施する。</p>
+</section>
+<section id="id4">
+<h2>スペース の作成<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="id5">
+<h2>参考<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://codecatalyst.aws/explore">Amazon CodeCatalyst</a></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">AWS CodeCatalyst</a><ul>
+<li><a class="reference internal" href="#id1">概要</a></li>
+<li><a class="reference internal" href="#id2">用語集</a></li>
+<li><a class="reference internal" href="#id3">制約 (2023.4.25時点)</a></li>
+<li><a class="reference internal" href="#id">ビルダーID の作成</a></li>
+<li><a class="reference internal" href="#id4">スペース の作成</a></li>
+<li><a class="reference internal" href="#id5">参考</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="../activities/fy2023early.html"
+                          title="Previous page">&larr; 塾活動(FY2023前期)</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="../tech/sphinx.html"
+                          title="Next page">&rarr; Sphinx</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/aws/codecatalyst.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../tech/sphinx.html" title="Sphinx"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../activities/fy2023early.html" title="塾活動(FY2023前期)"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">tech_log 0.0.1 documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">AWS CodeCatalyst</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Mitsuru KOBAYASHI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.0.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
