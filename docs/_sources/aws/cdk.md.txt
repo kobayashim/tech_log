@@ -16,7 +16,7 @@ TypeScriptやPython、JavaなどでAWSリソースを定義し、IaC(Infrastruct
 #### 確認方法
 
 ```powershell
-# [PowerShell on Windows]
+[PowerShell on Windows]
 
 # バージョンの確認
 > node -v
@@ -35,7 +35,7 @@ TypeScriptやPython、JavaなどでAWSリソースを定義し、IaC(Infrastruct
 
 ##### node.js
 
-PowerShellは___管理者権限___で実行すること。（右クリックのメニューから「管理者として実行」）。
+PowerShellは ___管理者権限___ で実行すること。（右クリックのメニューから「管理者として実行」）。
 
 ```powershell
 [PowerShell on Windows]
@@ -55,7 +55,7 @@ PowerShellは___管理者権限___で実行すること。（右クリックの�
 #### 確認方法
 
 ```powershell
-# [PowerShell on Windows]
+[PowerShell on Windows]
 
 # バージョンの確認
 > aws --version
@@ -72,7 +72,7 @@ PowerShellは___管理者権限___で実行すること。（右クリックの�
 #### 確認方法
 
 ```powershell
-# [PowerShell on Windows]
+[PowerShell on Windows]
 
 # バージョンの確認
 > cdk --version
