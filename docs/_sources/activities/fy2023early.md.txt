@@ -58,4 +58,4 @@ AWS使うのはいいけど運用やりたくないよね。という開発部�
 
 [Github Pages](https://kobayashim.github.io/tech_log/aws/codecatalyst.html) で公開
 
- * blueprint から API GW + Lambda + DynamoDB のREST環境を検証
+ * blueprint から API Gateway + Lambda + DynamoDB のREST環境を検証
