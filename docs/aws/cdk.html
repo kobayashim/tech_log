@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>AWS CDK(Cloud Development Kit) &#8212; tech_log 0.0.1 documentation</title>
+    <title>AWS Cloud Development Kit (CDK) &#8212; tech_log 0.0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
@@ -55,7 +55,7 @@
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">tech_log 0.0.1 documentation</a> &#187;</li>
 
-        <li class="nav-item nav-item-this"><a href="">AWS CDK(Cloud Development Kit)</a></li> 
+        <li class="nav-item nav-item-this"><a href="">AWS Cloud Development Kit (CDK)</a></li> 
       </ul>
     </div>
     </div>
@@ -66,8 +66,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="aws-cdk-cloud-development-kit">
-<h1>AWS CDK(Cloud Development Kit)<a class="headerlink" href="#aws-cdk-cloud-development-kit" title="Permalink to this heading">¶</a></h1>
+  <section id="aws-cloud-development-kit-cdk">
+<h1>AWS Cloud Development Kit (CDK)<a class="headerlink" href="#aws-cloud-development-kit-cdk" title="Permalink to this heading">¶</a></h1>
 <section id="id1">
 <h2>前提条件<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p>以下の文章は特記事項がないかぎり、開発環境はWindows、ターミナルはPowerShell、使用言語はTypeScriptを前提としている。</p>
@@ -75,7 +75,7 @@
 <section id="id2">
 <h2>概要<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>TypeScriptやPython、JavaなどでAWSリソースを定義し、IaC(Infrastructure as Code)を実現する。<br />
-最終的にAWS CloudFormation を用いてデプロイされる。</p>
+最終的に直接APIを叩いて変更を実施するか、AWS CloudFormation 形式のテンプレートに変換され、それを用いてデプロイされる。</p>
 </section>
 <section id="id3">
 <h2>必要条件<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
@@ -162,7 +162,91 @@
 </section>
 </section>
 <section id="id10">
-<h2>参考<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h2>
+<h2>初期化<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h2>
+<p>ここでは作業用ディレクトリを test_dir とした場合の例を説明する。</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># 作業用ディレクトリの作成と移動</span>
+<span class="p">&gt;</span> <span class="n">mkdir</span> <span class="n">test_dir</span>
+
+<span class="c"># 作業用ディレクトリへの移動</span>
+<span class="p">&gt;</span> <span class="nb">cd </span><span class="n">test_dir</span>
+
+<span class="c"># 初期化の実施</span>
+<span class="p">&gt;</span> <span class="n">cdk</span> <span class="n">init</span> <span class="p">-</span><span class="n">-language</span> <span class="n">typescript</span>
+</pre></div>
+</div>
+</section>
+<section id="bootstrap">
+<h2>bootstrap<a class="headerlink" href="#bootstrap" title="Permalink to this heading">¶</a></h2>
+<p>CDKを使用してデプロイを実施するための前準備を実施する。</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># bootstrapの実行</span>
+<span class="p">&gt;</span> <span class="n">cdk</span> <span class="n">bootstrap</span> <span class="p">-</span><span class="n">-profile</span> <span class="no">[profile]</span>
+</pre></div>
+</div>
+<p>こちらはアカウント毎、リージョン毎に実施する必要がある。</p>
+</section>
+<section id="id11">
+<h2>デプロイ<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h2>
+<section id="id12">
+<h3>通常のデプロイ<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h3>
+<p>CloudFormation を使用したフルスタックなデプロイを実施する。</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># デプロイの実行</span>
+<span class="p">&gt;</span> <span class="n">cdk</span> <span class="n">deploy</span> <span class="p">-</span><span class="n">-profile</span> <span class="no">[profile]</span>
+</pre></div>
+</div>
+</section>
+<section id="id13">
+<h3>ホットスワップデプロイ<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h3>
+<p>ホットスワップデプロイが可能であれば、CloudFormation ではなく、APIを使用して直接変更を実施する。<br />
+主にアプリケーションのコード変更を反映させたい場合に実施。<br />
+<em><strong>実稼働環境への使用は推奨されていない。</strong></em></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># デプロイの実行</span>
+<span class="p">&gt;</span> <span class="n">cdk</span> <span class="n">deploy</span> <span class="p">-</span><span class="n">-hotswap</span> <span class="p">-</span><span class="n">-profile</span> <span class="no">[profile]</span>
+</pre></div>
+</div>
+</section>
+<section id="cdk-watch">
+<h3>CDK Watch<a class="headerlink" href="#cdk-watch" title="Permalink to this heading">¶</a></h3>
+<p>cdk.json ファイルの watch 設定で指定されたファイルを監視し、変更があればホットスワップデプロイを実行する。<br />
+完全なデプロイを行う必要がある場合は、通常のデプロイが実施される。
+watch 設定は include と exclude があり、エントリーを単一文字列もしくは文字列配列で指定する。<br />
+各エントリーは cdk.json からの相対パスとして解釈される。
+グロブパターンとして * と ** を指定できる。</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># 監視の実行の実行</span>
+<span class="p">&gt;</span> <span class="n">cdk</span> <span class="n">watch</span> <span class="p">-</span><span class="n">-profile</span> <span class="no">[profile]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id14">
+<h2>差分確認<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># 差分確認の実行</span>
+<span class="p">&gt;</span> <span class="n">cdk</span> <span class="nb">diff </span><span class="p">-</span><span class="n">-profile</span> <span class="no">[profile]</span>
+</pre></div>
+</div>
+</section>
+<section id="id15">
+<h2>クリーンアップ<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
+
+<span class="c"># クリーンアップの実行</span>
+<span class="p">&gt;</span> <span class="n">cdk</span> <span class="n">destroy</span> <span class="p">-</span><span class="n">-profile</span> <span class="no">[profile]</span>
+</pre></div>
+</div>
+</section>
+<section id="id16">
+<h2>参考<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://cdkworkshop.com/ja/">AWS CDK Intro Workshop</a></p>
 </section>
 </section>
@@ -176,7 +260,7 @@
         <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
     <h3><a href="../index.html">Page contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">AWS CDK(Cloud Development Kit)</a><ul>
+<li><a class="reference internal" href="#">AWS Cloud Development Kit (CDK)</a><ul>
 <li><a class="reference internal" href="#id1">前提条件</a></li>
 <li><a class="reference internal" href="#id2">概要</a></li>
 <li><a class="reference internal" href="#id3">必要条件</a><ul>
@@ -202,7 +286,17 @@
 <li><a class="reference internal" href="#id">アクセスキーID / シークレットアクセスキー</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id10">参考</a></li>
+<li><a class="reference internal" href="#id10">初期化</a></li>
+<li><a class="reference internal" href="#bootstrap">bootstrap</a></li>
+<li><a class="reference internal" href="#id11">デプロイ</a><ul>
+<li><a class="reference internal" href="#id12">通常のデプロイ</a></li>
+<li><a class="reference internal" href="#id13">ホットスワップデプロイ</a></li>
+<li><a class="reference internal" href="#cdk-watch">CDK Watch</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id14">差分確認</a></li>
+<li><a class="reference internal" href="#id15">クリーンアップ</a></li>
+<li><a class="reference internal" href="#id16">参考</a></li>
 </ul>
 </li>
 </ul>
@@ -272,7 +366,7 @@
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">tech_log 0.0.1 documentation</a> &#187;</li>
 
-        <li class="nav-item nav-item-this"><a href="">AWS CDK(Cloud Development Kit)</a></li> 
+        <li class="nav-item nav-item-this"><a href="">AWS Cloud Development Kit (CDK)</a></li> 
       </ul>
     </div>
     </div>
