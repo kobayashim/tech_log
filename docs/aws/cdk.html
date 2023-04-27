@@ -73,9 +73,10 @@
 <p>以下の文章は特記事項がないかぎり、開発環境はWindows、ターミナルはPowerShell、使用言語はTypeScriptを前提としている。</p>
 </section>
 <section id="id2">
-<h2>概要<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<h2>概要・特徴<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>TypeScriptやPython、JavaなどでAWSリソースを定義し、IaC(Infrastructure as Code)を実現する。<br />
-最終的に直接APIを叩いて変更を実施するか、AWS CloudFormation 形式のテンプレートに変換され、それを用いてデプロイされる。</p>
+最終的に直接APIを叩いて変更を実施するか、AWS CloudFormation 形式のテンプレートに変換され、それを用いてデプロイされる。<br />
+yaml等で設定ファイルを作成する場合と比較して、条件分岐や繰り返し処理、ユニットテストの実施など一般的にコードが得意とする表現が可能となる。</p>
 </section>
 <section id="id3">
 <h2>必要条件<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
@@ -192,7 +193,7 @@
 <h2>デプロイ<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h2>
 <section id="id12">
 <h3>通常のデプロイ<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h3>
-<p>CloudFormation を使用したフルスタックなデプロイを実施する。</p>
+<p>CloudFormation を使用した完全なデプロイを実施する。</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
 
 <span class="c"># デプロイの実行</span>
@@ -202,7 +203,7 @@
 </section>
 <section id="id13">
 <h3>ホットスワップデプロイ<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h3>
-<p>ホットスワップデプロイが可能であれば、CloudFormation ではなく、APIを使用して直接変更を実施する。<br />
+<p>ホットスワップが可能であれば、CloudFormation ではなく、APIを使用して直接変更を実施する。<br />
 主にアプリケーションのコード変更を反映させたい場合に実施。<br />
 <em><strong>実稼働環境への使用は推奨されていない。</strong></em></p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
@@ -229,6 +230,8 @@ watch 設定は include と exclude があり、エントリーを単一文字�
 </section>
 <section id="id14">
 <h2>差分確認<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h2>
+<p>変更したコードと、現状を比較して差分を表示する。<br />
+事前に変更箇所を確認したい場合に使用する。</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
 
 <span class="c"># 差分確認の実行</span>
@@ -262,7 +265,7 @@ watch 設定は include と exclude があり、エントリーを単一文字�
     <ul>
 <li><a class="reference internal" href="#">AWS Cloud Development Kit (CDK)</a><ul>
 <li><a class="reference internal" href="#id1">前提条件</a></li>
-<li><a class="reference internal" href="#id2">概要</a></li>
+<li><a class="reference internal" href="#id2">概要・特徴</a></li>
 <li><a class="reference internal" href="#id3">必要条件</a><ul>
 <li><a class="reference internal" href="#node-js-v10-13-0">node.js v10.13.0以上</a><ul>
 <li><a class="reference internal" href="#id4">確認方法</a></li>
