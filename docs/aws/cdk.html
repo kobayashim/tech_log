@@ -250,12 +250,55 @@ watch 設定は include と exclude があり、エントリーを単一文字�
 </pre></div>
 </div>
 </section>
+<section id="id16">
+<h2>ステージ別対応の実施<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h2>
+<p>コンテキストを使用する。</p>
+<p>deploy等の実施する場合に以下の用にオプションを設定することで、スタックに値を渡すことができる。</p>
+<p><code class="docutils literal notranslate"><span class="pre">cdk</span> <span class="pre">deploy</span> <span class="pre">--profile</span> <span class="pre">[profile]</span> <span class="pre">-c</span> <span class="pre">stage=dev</span></code></p>
+<p>この値はgetContext()メソッドで受け取ることができる。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>const app = new cdk.App();
+const stage = app.node.getContext(&#39;stage&#39;)
+new TutorialCdkStack(app, `TutorialCdkStack-${stage}`, {});
+</pre></div>
+</div>
+<p>スタック内でも<code class="docutils literal notranslate"><span class="pre">this</span></code>で受け取れる。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export class TutorialCdkStack extends cdk.Stack {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
+
+    const stage = this.node.getContext(&#39;stage&#39;)
+</pre></div>
+</div>
+<p>なお cdk.json にステージ毎の環境差分を記述することが可能。この場合以下の方法で実施する。</p>
+<p>cdk.jsonに環境差分を追加する。</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span> {
+<span class="w"> </span>   &quot;context&quot;: {
+<span class="gi">+     &quot;prd&quot;: {</span>
+<span class="gi">+       &quot;key&quot;: &quot;value1&quot;    </span>
+<span class="gi">+      },     </span>
+<span class="gi">+     &quot;stg&quot;: {</span>
+<span class="gi">+       &quot;key&quot;: &quot;value2&quot;    </span>
+<span class="gi">+      }, </span>
+<span class="gi">+     &quot;dev&quot;: {</span>
+<span class="gi">+       &quot;key&quot;: &quot;value3&quot;    </span>
+<span class="gi">+      }, </span>
+<span class="w"> </span>   }
+<span class="w"> </span> }
+</pre></div>
+</div>
+<p>tryGetContext()メソッドでステージを取得し、そのステージに紐づくコンテキスを取得する。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">stage</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">tryGetContext</span><span class="p">(</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">const</span> <span class="n">context</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">tryGetContext</span><span class="p">(</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">const</span> <span class="n">value</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">key</span>
+</pre></div>
+</div>
+</section>
 <section id="api">
 <h2>API仕様<a class="headerlink" href="#api" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-construct-library.html">API Reference</a> を参照。</p>
 </section>
-<section id="id16">
-<h2>参考<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h2>
+<section id="id17">
+<h2>参考<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://cdkworkshop.com/ja/">AWS CDK Intro Workshop</a><br />
 <a class="reference external" href="https://docs.aws.amazon.com/cdk/api/v2/">AWS CDK Reference Documentation</a></p>
 </section>
@@ -306,8 +349,9 @@ watch 設定は include と exclude があり、エントリーを単一文字�
 </li>
 <li><a class="reference internal" href="#id14">差分確認</a></li>
 <li><a class="reference internal" href="#id15">クリーンアップ</a></li>
+<li><a class="reference internal" href="#id16">ステージ別対応の実施</a></li>
 <li><a class="reference internal" href="#api">API仕様</a></li>
-<li><a class="reference internal" href="#id16">参考</a></li>
+<li><a class="reference internal" href="#id17">参考</a></li>
 </ul>
 </li>
 </ul>

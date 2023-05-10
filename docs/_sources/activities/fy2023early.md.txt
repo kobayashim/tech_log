@@ -76,3 +76,8 @@ AWS使うのはいいけど運用やりたくないよね。という開発部�
 作成したサンプルコード → [Github](https://github.com/kobayashim/tutorial_cdk)  
 作成方法のまとめ → [Github Pages](https://kobayashim.github.io/tech_log/aws/cdk.html)   
 
+できたこと
+
+* 一通りの動作
+* ステージ別のデプロイおよび環境差分対応
+

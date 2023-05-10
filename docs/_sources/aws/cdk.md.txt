@@ -189,6 +189,60 @@ AWSからリソースの削除を実施する。
 > cdk destroy --profile [profile]
 ```
 
+## ステージ別対応の実施
+
+コンテキストを使用する。
+
+deploy等の実施する場合に以下の用にオプションを設定することで、スタックに値を渡すことができる。
+
+```cdk deploy --profile [profile] -c stage=dev```
+
+この値はgetContext()メソッドで受け取ることができる。
+
+```
+const app = new cdk.App();
+const stage = app.node.getContext('stage')
+new TutorialCdkStack(app, `TutorialCdkStack-${stage}`, {});
+```
+
+スタック内でも```this```で受け取れる。  
+```
+export class TutorialCdkStack extends cdk.Stack {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
+
+    const stage = this.node.getContext('stage')
+```
+
+なお cdk.json にステージ毎の環境差分を記述することが可能。この場合以下の方法で実施する。
+
+cdk.jsonに環境差分を追加する。
+
+``` diff
+  {
+    "context": {
++     "prd": {
++       "key": "value1"    
++      },     
++     "stg": {
++       "key": "value2"    
++      }, 
++     "dev": {
++       "key": "value3"    
++      }, 
+    }
+  }
+```
+
+tryGetContext()メソッドでステージを取得し、そのステージに紐づくコンテキスを取得する。
+
+```
+const stage = app.node.tryGetContext('stage')
+const context = app.node.tryGetContext(stage)
+const value = context.key
+```
+
+
 ## API仕様
 
 [API Reference](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-construct-library.html) を参照。
