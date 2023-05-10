@@ -218,7 +218,7 @@ yaml等で設定ファイルを作成する場合と比較して、条件分岐�
 <p>cdk.json ファイルの watch 設定で指定されたファイルを監視し、変更があればホットスワップデプロイを実行する。<br />
 完全なデプロイを行う必要がある場合は、通常のデプロイが実施される。
 watch 設定は include と exclude があり、エントリーを単一文字列もしくは文字列配列で指定する。<br />
-各エントリーは cdk.json からの相対パスとして解釈される。
+各エントリーは cdk.json からの相対パスとして解釈される。<br />
 グロブパターンとして * と ** を指定できる。</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
 
@@ -241,6 +241,8 @@ watch 設定は include と exclude があり、エントリーを単一文字�
 </section>
 <section id="id15">
 <h2>クリーンアップ<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h2>
+<p>AWSからリソースの削除を実施する。<br />
+特段の設定がない場合、クリーンアップを実施しても削除されないリソースがあることに留意する。</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[PowerShell on Windows]</span>
 
 <span class="c"># クリーンアップの実行</span>
@@ -248,9 +250,14 @@ watch 設定は include と exclude があり、エントリーを単一文字�
 </pre></div>
 </div>
 </section>
+<section id="api">
+<h2>API仕様<a class="headerlink" href="#api" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-construct-library.html">API Reference</a> を参照。</p>
+</section>
 <section id="id16">
 <h2>参考<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h2>
-<p><a class="reference external" href="https://cdkworkshop.com/ja/">AWS CDK Intro Workshop</a></p>
+<p><a class="reference external" href="https://cdkworkshop.com/ja/">AWS CDK Intro Workshop</a><br />
+<a class="reference external" href="https://docs.aws.amazon.com/cdk/api/v2/">AWS CDK Reference Documentation</a></p>
 </section>
 </section>
 
@@ -299,6 +306,7 @@ watch 設定は include と exclude があり、エントリーを単一文字�
 </li>
 <li><a class="reference internal" href="#id14">差分確認</a></li>
 <li><a class="reference internal" href="#id15">クリーンアップ</a></li>
+<li><a class="reference internal" href="#api">API仕様</a></li>
 <li><a class="reference internal" href="#id16">参考</a></li>
 </ul>
 </li>

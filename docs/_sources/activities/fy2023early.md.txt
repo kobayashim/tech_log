@@ -59,3 +59,20 @@ AWS使うのはいいけど運用やりたくないよね。という開発部�
 [Github Pages](https://kobayashim.github.io/tech_log/aws/codecatalyst.html) で公開
 
  * blueprint から API Gateway + Lambda + DynamoDB のREST環境を検証
+
+###  2023.4.28 ～ 2023.5.10
+
+#### 前回からの取り組み状況
+
+##### Amazon CodeCatalystの検証
+
+付随してAWS CDKのチュートリアルを実施  
+
+作成したサンプルの概要
+
+![CDK Sample](./img/cdk_sample.png "CDK Sample")
+
+
+作成したサンプルコード → [Github](https://github.com/kobayashim/tutorial_cdk)  
+作成方法のまとめ → [Github Pages](https://kobayashim.github.io/tech_log/aws/cdk.html)   
+
