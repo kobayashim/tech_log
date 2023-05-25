@@ -91,3 +91,10 @@ AWS使うのはいいけど運用やりたくないよね。という開発部�
 
 CodeCatalystと他統合サービス(Azure DevOps)との比較調査　→ 業務繁忙により進捗なし。
 CDKと他IaCサービス(Clouformation、Terraform)サービスとの比較調査　→ 業務繁忙により進捗なし。
+
+###  2023.5.18 ～ 2023.5.24
+
+#### 前回からの取り組み状況
+
+CodeCatalystの概要整理と他統合サービス(Azure DevOps)との比較調査  
+→ 業務繁忙によりあまり進捗なし。[Github Pages](https://kobayashim.github.io/tech_log/aws/codecatalyst.html)  

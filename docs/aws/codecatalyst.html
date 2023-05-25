@@ -35,8 +35,8 @@
 
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Sphinx" href="../tech/sphinx.html" />
-    <link rel="prev" title="塾活動(FY2023前期)" href="../activities/fy2023early.html" /> 
+    <link rel="next" title="AWS Cloud Development Kit (CDK)" href="cdk.html" />
+    <link rel="prev" title="活動(FY2023前期)" href="../activities/fy2023early.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -48,10 +48,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../tech/sphinx.html" title="Sphinx"
+          <a href="cdk.html" title="AWS Cloud Development Kit (CDK)"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="../activities/fy2023early.html" title="塾活動(FY2023前期)"
+          <a href="../activities/fy2023early.html" title="活動(FY2023前期)"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">tech_log 0.0.1 documentation</a> &#187;</li>
 
@@ -69,11 +69,7 @@
   <section id="aws-codecatalyst">
 <h1>AWS CodeCatalyst<a class="headerlink" href="#aws-codecatalyst" title="Permalink to this heading">¶</a></h1>
 <section id="id1">
-<h2>概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
-<p>TBD</p>
-</section>
-<section id="id2">
-<h2>用語集<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<h2>用語集<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><em><strong>日本語は公式な訳ではないことに注意。</strong></em></p>
 <ul class="simple">
 <li><p>ビルダーID (AWS Builder ID)</p></li>
@@ -109,8 +105,63 @@ issueやリポジトリ、ワークフローなど必要な機能が含まれて
 </ul>
 <p>クラウドベースの開発環境にアクセスした時間。スペースあたり。</p>
 </section>
+<section id="id2">
+<h2>概要<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<section id="codecatalyst">
+<h3>CodeCatalystの目的<a class="headerlink" href="#codecatalyst" title="Permalink to this heading">¶</a></h3>
+<p>CodeCatalystは、あるいはアイデアから生産に至るまで、チームが必要とするすべてのツールとインフラを1つのシームレスな体験にまとめる、統合されたDevOpsのサービス<br />
+→ インフラまでセットなので大きな特徴と感じた。</p>
 <section id="id3">
-<h2>制約 (2023.4.25時点)<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<h4>プロジェクトのセットアップを高速化<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
+<p>ブループリント。</p>
+</section>
+<section id="ci-cd">
+<h4>CI/CDパイプライン<a class="headerlink" href="#ci-cd" title="Permalink to this heading">¶</a></h4>
+<p>ブループリント。</p>
+<p>ワークフローはYAMLもしくはGUIで作成。</p>
+<p>GithubActionsの利用が可能。</p>
+<p>パイプラインの実行環境は変更可能。</p>
+<p>レポート機能。</p>
+</section>
+<section id="id4">
+<h4>統合開発環境<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h4>
+<p>ローカル開発環境を統一的に用意できる。 →　セットアップの手間や環境差分問題に悩まされない。<br />
+→ あるBPはwindowsで、あるBPはMacだったとか。</p>
+<p>ローカル環境に影響がない　→　複数の環境を手間なしに併存できる</p>
+<p>開発環境(Cloud9,VS Code, IntelliJ, GoLand, PyCharm)のみインストールで実施可能<br />
+→ AWS上に開発環境が作成されるため、お金がかかる → 課金要素</p>
+</section>
+<section id="id5">
+<h4>コラボレーション<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h4>
+<p>AWS Builder IDの使用。
+AWSアカウントはスペース単位で共有。　→　個人単位AWSアカウントなしで作業可能。</p>
+</section>
+</section>
+<section id="code">
+<h3>他Codeシリーズ/他サービスとの比較<a class="headerlink" href="#code" title="Permalink to this heading">¶</a></h3>
+<section id="id6">
+<h4>コスト<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h4>
+<p>ツールチェーンをカスタマイズできるのはよいがコストがかかる。<br />
+→ コストに見合う価値がある場合(大規模など)はよいが、そうでないケースも多い。<br />
+→ ここでいうコストとは金額だけでなく、導入や維持に必要な労力を含む。</p>
+</section>
+<section id="id7">
+<h4>インフラ<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h4>
+<p>必要な環境は様々であり、本番環境以外にもテスト環境や開発者デスクトップ環境なども存在する。<br />
+→ これらをより簡単に管理したい。</p>
+</section>
+</section>
+<section id="id8">
+<h3>他サービスとのコラボレーション<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
+<p>TBD</p>
+</section>
+<section id="id9">
+<h3>他統合サービスとの比較<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
+<p>TBD</p>
+</section>
+</section>
+<section id="id10">
+<h2>制約 (2023.4.25時点)<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h2>
 <p>現時点ではオレゴンリージョンでしか使用はできない。<br />
 作成したアプリを別リージョンにデプロイすることは可能。</p>
 </section>
@@ -127,11 +178,11 @@ issueやリポジトリ、ワークフローなど必要な機能が含まれて
 <p><img alt="AWS Builder ID 作成 fig.4" src="../_images/builderid4.png" /></p>
 <p>正常に作成された場合、スペースの作成画面に遷移するため、引き続きスペースの作成を実施する。</p>
 </section>
-<section id="id4">
-<h2>スペース の作成<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<section id="id11">
+<h2>スペース の作成<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h2>
 </section>
-<section id="id5">
-<h2>参考<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
+<section id="id12">
+<h2>参考<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://codecatalyst.aws/explore">Amazon CodeCatalyst</a></p>
 </section>
 </section>
@@ -146,12 +197,28 @@ issueやリポジトリ、ワークフローなど必要な機能が含まれて
     <h3><a href="../index.html">Page contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">AWS CodeCatalyst</a><ul>
-<li><a class="reference internal" href="#id1">概要</a></li>
-<li><a class="reference internal" href="#id2">用語集</a></li>
-<li><a class="reference internal" href="#id3">制約 (2023.4.25時点)</a></li>
+<li><a class="reference internal" href="#id1">用語集</a></li>
+<li><a class="reference internal" href="#id2">概要</a><ul>
+<li><a class="reference internal" href="#codecatalyst">CodeCatalystの目的</a><ul>
+<li><a class="reference internal" href="#id3">プロジェクトのセットアップを高速化</a></li>
+<li><a class="reference internal" href="#ci-cd">CI/CDパイプライン</a></li>
+<li><a class="reference internal" href="#id4">統合開発環境</a></li>
+<li><a class="reference internal" href="#id5">コラボレーション</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#code">他Codeシリーズ/他サービスとの比較</a><ul>
+<li><a class="reference internal" href="#id6">コスト</a></li>
+<li><a class="reference internal" href="#id7">インフラ</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">他サービスとのコラボレーション</a></li>
+<li><a class="reference internal" href="#id9">他統合サービスとの比較</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10">制約 (2023.4.25時点)</a></li>
 <li><a class="reference internal" href="#id">ビルダーID の作成</a></li>
-<li><a class="reference internal" href="#id4">スペース の作成</a></li>
-<li><a class="reference internal" href="#id5">参考</a></li>
+<li><a class="reference internal" href="#id11">スペース の作成</a></li>
+<li><a class="reference internal" href="#id12">参考</a></li>
 </ul>
 </li>
 </ul>
@@ -160,12 +227,12 @@ issueやリポジトリ、ワークフローなど必要な機能が含まれて
   <div class="sphinxprev">
     <h4>Previous page</h4>
     <p class="topless"><a href="../activities/fy2023early.html"
-                          title="Previous page">&larr; 塾活動(FY2023前期)</a></p>
+                          title="Previous page">&larr; 活動(FY2023前期)</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="../tech/sphinx.html"
-                          title="Next page">&rarr; Sphinx</a></p>
+    <p class="topless"><a href="cdk.html"
+                          title="Next page">&rarr; AWS Cloud Development Kit (CDK)</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -214,10 +281,10 @@ issueやリポジトリ、ワークフローなど必要な機能が含まれて
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../tech/sphinx.html" title="Sphinx"
+          <a href="cdk.html" title="AWS Cloud Development Kit (CDK)"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="../activities/fy2023early.html" title="塾活動(FY2023前期)"
+          <a href="../activities/fy2023early.html" title="活動(FY2023前期)"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">tech_log 0.0.1 documentation</a> &#187;</li>
 
